@@ -20,7 +20,7 @@ ESP32_WIFI               我的代码主体
     百度API申请跳转链接    https://cloud.baidu.com/
 3.  WIFI 账号密码，豆包API，百度API需要填你自己的
 
-### 复刻成本
+#### 复刻成本
 
     元器件:                        价格(RMB):                个数：
     ESP32-S3-CAM-N16R8            25.7                        1
