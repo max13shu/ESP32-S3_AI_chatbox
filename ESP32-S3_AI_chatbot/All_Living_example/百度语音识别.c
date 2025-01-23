@@ -5,11 +5,11 @@
 #include <esp_heap_caps.h>
 #include "arduino_base64.hpp"
 
-const char* ssid = "wsyzlmz2";
-const char* password = "qwerasdf12345";
+const char* ssid = "";
+const char* password = "";
 
-const String API_KEY = "aTkqF61XnxZJx8ryqz4STTNg";
-const String SECRET_KEY = "cLqyewqWpUwqutzxkNOJA1eFxNqhTSO6";
+const String API_KEY = "";
+const String SECRET_KEY = "";
 
 // array size is 129600
 unsigned char speech[] PROGMEM = {

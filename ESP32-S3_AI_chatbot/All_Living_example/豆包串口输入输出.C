@@ -14,11 +14,11 @@
 #define GFX_BL   16 // Backlight pin
 
 // 设置WiFi
-const char* ssid = "wsyzlmz2";
-const char* password = "qwerasdf12345";
+const char* ssid = "";
+const char* password = "";
 
 // 豆包 API key
-const char* doubao_apiKey = "77a5806a-7bb4-4c96-a500-9c7b8a731ac7";
+const char* doubao_apiKey = "";
 
 // 豆包 API
 String inputText = "你好，豆包！";

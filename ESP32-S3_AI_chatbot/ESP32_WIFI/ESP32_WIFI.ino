@@ -10,12 +10,12 @@
 #include <driver/i2s.h>
 
 // GFX 引脚设置
-#define GFX_MOSI 5 // Data pin
-#define GFX_SCLK 4 // Clock pin
-#define GFX_CS 15  // Chip select pin
-#define GFX_DC 7   // Data/Command pin
-#define GFX_RST 6  // Reset pin
-#define GFX_BL 16  // Backlight pin
+#define GFX_MOSI 5 
+#define GFX_SCLK 4 
+#define GFX_CS 15  
+#define GFX_DC 7  
+#define GFX_RST 6  
+#define GFX_BL 16  
 
 // WS2812灯
 #define LEDS_COUNT 1 // 只需要1个LED
@@ -42,17 +42,17 @@ Arduino_GFX *gfx = new Arduino_ST7735(
 	true /* BGR */);
 
 // WIFI设置
-const char *ssid = "wsyzlmz2";  //你的WIFI账号
-const char *password = "qwerasdf12345"; //你的WIFI密码
+const char *ssid = "  ";  //你的WIFI账号
+const char *password = "  "; //你的WIFI密码
 // const char* ssid = "HW-GenKi";
 // const char* password = "3.1415926";
 
 // 百度 AIP key
-const String API_KEY = "aTkqF61XnxZJx8ryqz4STTNg";  //
-const String SECRET_KEY = "cLqyewqWpUwqutzxkNOJA1eFxNqhTSO6";
+const String API_KEY = "  ";  
+const String SECRET_KEY = " ";
 
 // 豆包 API key
-const char *doubao_apiKey = "77a5806a-7bb4-4c96-a500-9c7b8a731ac7";
+const char *doubao_apiKey = " ";
 
 // 豆包 API
 String inputText = "你好，豆包！";
@@ -125,11 +125,8 @@ ESP32_WS2812 strip = ESP32_WS2812(LEDS_COUNT, LEDS_PIN, CHANNEL, TYPE_GRB);
 void LED_UP()
 {
 	strip.begin();				// 初始化灯带
-	strip.setBrightness(0);		// 设置亮度（0-255）
+	strip.setBrightness(50);		// 设置亮度（0-255）
 	pinMode(KEY, INPUT_PULLUP); // 配置GPIO为输入模式，启用内部上拉电阻
-	// 设置LED为白色
-	strip.setLedColorData(0, 255, 255, 255); // RGB值均为255表示白色
-	strip.show();							 // 更新LED显示
 }
 
 // 初始化显示屏
@@ -396,25 +393,25 @@ void loop()
 {
 	if (checkButtonPress())
 	{ // 检测按键按下
+	  strip.setLedColorData(0, 255, 0, 0); // 红
+		strip.show();			  // 更新LED显示
 		if (record_flag == 0)
 		{
 			record_flag = 1;
 			speech_count = 0;
 			// 開始記錄數據
-			// strip.setBrightness(255); // 设置LED亮度为255
-			// strip.show();			  // 更新LED显示
+	
 		}
 		
 		int rst = readI2SData(); // 读取I2S数据
 	}
 	else
 	{
+    strip.setLedColorData(0, 0, 255, 0); // 绿
+		strip.show();			// 更新LED显示
 		if (record_flag == 1)
 		{
 			record_flag = 0;
-
-      // strip.setBrightness(0); // 设置LED亮度为0
-			// strip.show();			// 更新LED显示
 			// 數據發送
 			send_record();
 			// 清理數據個數
